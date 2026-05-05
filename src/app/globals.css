@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+/* stylelint-disable at-rule-no-unknown */
+@plugin "daisyui";
+/* stylelint-enable at-rule-no-unknown */
+
+:root {
+  --background: #f9f9ff;
+  --foreground: #111c2d;
+  --surface-1: #ffffff;
+  --surface-2: #f0f3ff;
+  --surface-3: #dee8ff;
+  --brand-start: #ff7a00;
+  --brand-end: #ff2d00;
+  --brand-primary: #ff7a00;
+  --brand-secondary: #ff2d00;
+  --brand-accent: #ff3b3b;
+  --brand-muted: #584235;
+  --brand-outline: #e0c0af;
+  --brand-shadow: rgba(255, 122, 0, 0.22);
+  --color-base-100: var(--surface-1);
+  --color-base-200: var(--surface-2);
+  --color-base-300: var(--surface-3);
+  --color-base-content: var(--foreground);
+  --color-primary: var(--brand-primary);
+  --color-primary-content: #ffffff;
+  --color-secondary: var(--brand-secondary);
+  --color-secondary-content: #ffffff;
+  --color-accent: var(--brand-accent);
+  --color-accent-content: #ffffff;
+  --color-neutral: #1e293b;
+  --color-neutral-content: #f8fafc;
+  --color-info: #3b82f6;
+  --color-info-content: #ffffff;
+  --color-success: #16a34a;
+  --color-success-content: #ffffff;
+  --color-warning: #d97706;
+  --color-warning-content: #ffffff;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.625rem;
+  --radius-field: 0.625rem;
+  --radius-box: 0.625rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@layer components {
+  .brand-gradient {
+    background-image: linear-gradient(
+      90deg,
+      var(--brand-start),
+      var(--brand-end)
+    );
+  }
+
+  .brand-shadow {
+    box-shadow: 0 20px 60px var(--brand-shadow);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
