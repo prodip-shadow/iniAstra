@@ -37,6 +37,7 @@ export default function HeroSection() {
             alt="Modern office collaborative environment"
             width={1280}
             height={800}
+            loading="eager"
             unoptimized
             className="relative h-125 w-full rounded-[10px] object-cover shadow-2xl shadow-black/10"
           />
