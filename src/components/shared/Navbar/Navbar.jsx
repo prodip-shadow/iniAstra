@@ -1,5 +1,9 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import Link from 'next/link';
-import Button from '@/components/buttons/Button';
+import Image from 'next/image';
 
 const navigationItems = [
   { label: 'Services', href: '#services', active: true },
@@ -10,38 +14,122 @@ const navigationItems = [
 ];
 
 export default function Navbar() {
-  return (
-    <nav className="sticky top-0 z-50 border-b border-base-300 bg-base-100/90 backdrop-blur-md shadow-sm">
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link
-          href="/"
-          className="text-2xl font-extrabold tracking-tight text-primary"
-        >
-          iniAstra Tech
-        </Link>
+  const navRef = useRef(null);
+  const logoBgRef = useRef(null);
+  const routesBgRef = useRef(null);
 
-        <div className="hidden items-center gap-8 md:flex">
+  useEffect(() => {
+    const navElement = navRef.current;
+    const logoBgElement = logoBgRef.current;
+    const routesBgElement = routesBgRef.current;
+
+    if (!navElement || !logoBgElement || !routesBgElement) {
+      return undefined;
+    }
+
+    const animationState = {
+      blur: 0,
+      glass: 0,
+    };
+
+    const applyStyles = () => {
+      const blurValue = `${animationState.blur}px`;
+      // dark liquid glass overlay
+      const logoGlassValue = `rgba(6, 8, 15, ${animationState.glass})`;
+
+      [logoBgElement, routesBgElement].forEach((element) => {
+        element.style.backgroundColor = logoGlassValue;
+        if (animationState.glass > 0) {
+          element.style.backdropFilter = `blur(${blurValue}) saturate(120%) brightness(70%)`;
+          element.style.webkitBackdropFilter = `blur(${blurValue}) saturate(120%) brightness(70%)`;
+        } else {
+          element.style.backdropFilter = 'none';
+          element.style.webkitBackdropFilter = 'none';
+        }
+      });
+    };
+
+    const animateToScrollState = () => {
+      const progress = Math.min(window.scrollY / 140, 1);
+      gsap.to(animationState, {
+        blur: gsap.utils.interpolate(0, 34, progress),
+        glass: gsap.utils.interpolate(0, 0.22, progress),
+        duration: 0.35,
+        ease: 'power2.out',
+        overwrite: 'auto',
+        onUpdate: applyStyles,
+      });
+    };
+
+    // ensure initial transparent state before any scroll
+    applyStyles();
+    animateToScrollState();
+    window.addEventListener('scroll', animateToScrollState, { passive: true });
+
+    return () => window.removeEventListener('scroll', animateToScrollState);
+  }, []);
+
+  return (
+    <nav
+      ref={navRef}
+      className="sticky top-8 z-50 w-full border-none bg-transparent transition-colors duration-300"
+      style={{ backgroundColor: 'transparent' }}
+    >
+      <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div
+          ref={logoBgRef}
+          className="shrink-0 rounded-2xl p-1"
+          style={{
+            backgroundColor: 'transparent',
+            backdropFilter: 'blur(0px)',
+            WebkitBackdropFilter: 'blur(0px)',
+          }}
+        >
+          <Link
+            href="/"
+            className="flex items-center border-b-2 p-3 border-transparent  transition-colors hover:border-orange-500/50"
+          >
+            <Image
+              src="/Logos/iniAstraTechLogoWhite-01.png"
+              alt="iniAstra Tech Logo"
+              width={1080}
+              height={1080}
+              className="h-9 w-auto"
+            />
+          </Link>
+        </div>
+
+        <div
+          ref={routesBgRef}
+          className="hidden items-center  gap-1 rounded-2xl px-6 py-1.5 md:flex"
+          style={{
+            backgroundColor: 'transparent',
+            backdropFilter: 'blur(0px)',
+            WebkitBackdropFilter: 'blur(0px)',
+          }}
+        >
           {navigationItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={
+              className={`shrink-0 border-b-2 p-3 text-sm font-semibold transition-all duration-300 text-white ${
                 item.active
-                  ? 'border-b-2 border-primary pb-1 text-sm font-semibold text-primary transition-colors duration-300'
-                  : 'text-sm font-semibold text-base-content/70 transition-colors duration-300 hover:text-primary'
-              }
+                  ? 'border-orange-500'
+                  : 'border-transparent hover:border-orange-500/50 hover:text-white'
+              }`}
             >
               {item.label}
             </Link>
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 md:hidden">
+          {/* Mobile Menu */}
           <div className="dropdown dropdown-end md:hidden">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle border border-base-300 bg-base-100 text-base-content hover:bg-base-200"
+              className="btn btn-ghost btn-circle border border-white/15 bg-white/5 text-white hover:bg-white/10"
               aria-label="Open menu"
             >
               <svg
@@ -60,12 +148,16 @@ export default function Navbar() {
               </svg>
             </div>
 
-            <ul className="menu dropdown-content mt-3 w-56 rounded-[10px] border border-base-300 bg-base-100 p-3 shadow-xl">
+            <ul className="menu dropdown-content mt-3 w-56 rounded-[10px] border border-white/10 bg-slate-950/90 p-3 shadow-xl backdrop-blur-2xl">
               {navigationItems.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className={item.active ? 'font-semibold text-primary' : ''}
+                    className={`transition-colors ${
+                      item.active
+                        ? 'font-semibold text-orange-400'
+                        : 'text-white hover:text-orange-400'
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -73,13 +165,6 @@ export default function Navbar() {
               ))}
             </ul>
           </div>
-
-          <Button
-            href="#contact"
-            text="Get Started"
-            color="primary"
-            className="h-11 rounded-[10px] px-4 text-sm font-semibold transition-transform hover:scale-[0.98] active:scale-95"
-          />
         </div>
       </div>
     </nav>

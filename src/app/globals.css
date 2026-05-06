@@ -4,19 +4,19 @@
 /* stylelint-enable at-rule-no-unknown */
 
 :root {
-  --background: #f9f9ff;
-  --foreground: #111c2d;
-  --surface-1: #ffffff;
-  --surface-2: #f0f3ff;
-  --surface-3: #dee8ff;
+  --background: #050816;
+  --foreground: #f8fafc;
+  --surface-1: #0b1020;
+  --surface-2: #111827;
+  --surface-3: #1f2937;
   --brand-start: #ff7a00;
   --brand-end: #ff2d00;
   --brand-primary: #ff7a00;
   --brand-secondary: #ff2d00;
   --brand-accent: #ff3b3b;
   --brand-muted: #584235;
-  --brand-outline: #e0c0af;
-  --brand-shadow: rgba(255, 122, 0, 0.22);
+  --brand-outline: rgba(255, 122, 0, 0.3);
+  --brand-shadow: rgba(255, 122, 0, 0.28);
   --color-base-100: var(--surface-1);
   --color-base-200: var(--surface-2);
   --color-base-300: var(--surface-3);
@@ -27,7 +27,7 @@
   --color-secondary-content: #ffffff;
   --color-accent: var(--brand-accent);
   --color-accent-content: #ffffff;
-  --color-neutral: #1e293b;
+  --color-neutral: #0f172a;
   --color-neutral-content: #f8fafc;
   --color-info: #3b82f6;
   --color-info-content: #ffffff;
@@ -65,4 +65,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  color-scheme: dark;
 }
