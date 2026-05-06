@@ -1,14 +1,26 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Quantico } from 'next/font/google';
+import { Audiowide, Playwrite_AR_Guides, Bruno_Ace_SC } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const quantico = Quantico({
+  variable: '--font-quantico',
+  weight: ['400', '700'],
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const audiowide = Audiowide({
+  variable: '--font-audiowide',
+  weight: '400',
+});
+
+const playwriteAr = Playwrite_AR_Guides({
+  variable: '--font-playwrite-ar',
+  weight: '400',
+});
+
+const brunoAceSc = Bruno_Ace_SC({
+  variable: '--font-bruno-ace-sc',
+  weight: '400',
 });
 
 export const metadata = {
@@ -20,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-slate-950`}
+      className={`${quantico.variable} ${audiowide.variable} ${playwriteAr.variable} ${brunoAceSc.variable} h-full antialiased bg-slate-950`}
       suppressHydrationWarning
     >
       <body

@@ -34,16 +34,26 @@ function ServiceIcon({ name }) {
 
 export default function ServiceCard({ icon, title, description }) {
   return (
-    <article className="rounded-[10px] bg-base-100 p-8 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10">
-      <div className="space-y-5">
-        <ServiceIcon name={icon} />
-        <div className="space-y-3">
-          <h3 className="text-2xl font-semibold tracking-tight text-base-content">
-            {title}
-          </h3>
-          <p className="text-base leading-7 text-base-content/70">
-            {description}
-          </p>
+    <article className="relative group overflow-hidden rounded-2xl bg-base-100 border border-transparent p-6 md:p-8 transition-transform duration-200 hover:scale-[1.01] h-full">
+      <div className="relative z-10 flex flex-col h-full">
+        <div className="flex items-start gap-4">
+          <div className="shrink-0">
+            <ServiceIcon name={icon} />
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg md:text-xl font-semibold tracking-tight text-base-content mb-1">
+              {title}
+            </h3>
+            <p className="text-sm md:text-base leading-7 text-base-content/70">
+              {description}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-end">
+          <span className="text-sm font-medium text-primary/90">
+            Learn more →
+          </span>
         </div>
       </div>
     </article>

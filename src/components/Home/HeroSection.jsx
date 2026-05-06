@@ -25,15 +25,15 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex min-h-screen items-center justify-center">
         <div className="text-center px-6 sm:px-8 max-w-4xl mx-auto">
-          <span className="inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-400 backdrop-blur-sm">
+          <span className="inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-[8px] font-semibold uppercase tracking-[0.2em] text-orange-400 backdrop-blur-sm ">
             Next-Gen Digital Lab
           </span>
 
           <div className="space-y-8 mt-8">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-6xl lg:text-6xl font-extrabold leading-tight font-audiowide tracking-tight text-white drop-shadow-2xl">
               Smart Digital Solutions for Modern Businesses
             </h1>
-            <p className="text-xl sm:text-lg leading-8 text-gray-300 drop-shadow-lg max-w-3xl mx-auto">
+            <p className="text-xl sm:text-lg leading-8 text-gray-300 drop-shadow-lg max-w-3xl mx-auto font-playwrite-ar">
               We design, develop, and integrate intelligent systems to help your
               business grow. Transform your operational efficiency with kinetic
               technology.

@@ -34,18 +34,14 @@ export default function Navbar() {
 
     const applyStyles = () => {
       const blurValue = `${animationState.blur}px`;
-      // dark liquid glass overlay
+      // dark liquid glass overlay - smooth fade animation
       const logoGlassValue = `rgba(6, 8, 15, ${animationState.glass})`;
 
       [logoBgElement, routesBgElement].forEach((element) => {
         element.style.backgroundColor = logoGlassValue;
-        if (animationState.glass > 0) {
-          element.style.backdropFilter = `blur(${blurValue}) saturate(120%) brightness(70%)`;
-          element.style.webkitBackdropFilter = `blur(${blurValue}) saturate(120%) brightness(70%)`;
-        } else {
-          element.style.backdropFilter = 'none';
-          element.style.webkitBackdropFilter = 'none';
-        }
+        // blur + saturate with smooth brightness fade
+        element.style.backdropFilter = `blur(${blurValue}) saturate(120%) brightness(${98 - animationState.glass * 28}%)`;
+        element.style.webkitBackdropFilter = `blur(${blurValue}) saturate(120%) brightness(${98 - animationState.glass * 28}%)`;
       });
     };
 
@@ -90,11 +86,11 @@ export default function Navbar() {
             className="flex items-center border-b-2 p-3 border-transparent  transition-colors hover:border-orange-500/50"
           >
             <Image
-              src="/Logos/iniAstraTechLogoWhite-01.png"
+              src="/Logos/whitelogoforwebsite2-01.png"
               alt="iniAstra Tech Logo"
               width={1080}
               height={1080}
-              className="h-9 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
         </div>

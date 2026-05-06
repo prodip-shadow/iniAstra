@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const exploreLinks = [
@@ -18,7 +19,18 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
           <div className="text-2xl font-bold tracking-tight text-primary">
-            iniAstra Tech
+            <Link
+              href="/"
+              className="flex items-center border-b-2 border-transparent  transition-colors hover:border-orange-500/50"
+            >
+              <Image
+                src="/Logos/iniAstraTechLogoWhite-01.png"
+                alt="iniAstra Tech Logo"
+                width={1080}
+                height={1080}
+                className="h-14 w-auto"
+              />
+            </Link>
           </div>
           <p className="mt-4 max-w-sm text-base leading-7 text-base-content/70">
             Empowering businesses with precision-engineered digital products and
