@@ -19,7 +19,7 @@ export default function HeroSection() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute -right-32 sm:-right-40 top-0 h-80 sm:h-[32rem] lg:h-[40rem] w-80 sm:w-[32rem] lg:w-[40rem] rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
+      <div className="absolute -right-32 sm:-right-40 top-0 h-80 sm:h-128 lg:h-160 w-80 sm:w-lg lg:w-160 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-16 sm:-bottom-24 left-0 h-64 sm:h-96 w-64 sm:w-96 rounded-full bg-orange-500/5 blur-3xl pointer-events-none" />
 
       {/* Content */}
@@ -41,8 +41,13 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-8">
-            <Button href="#contact" text="Get Started" color="primary" />
-            <Button href="#services" text="View Services" color="secondary" />
+            <Button href="/contact" text="Get Started" color="primary" />
+            <Button
+              href="/services"
+              className="inline-flex  items-center gap-2 rounded-md border border-white/10  px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-200 text-center"
+              text="View Services"
+              color="neutral"
+            />
           </div>
         </div>
       </div>

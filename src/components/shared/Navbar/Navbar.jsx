@@ -4,19 +4,23 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const navigationItems = [
-  { label: 'Services', href: '#services', active: true },
-  { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services', href: '/services' },
+  { label: 'About', href: '/about' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
   const navRef = useRef(null);
   const logoBgRef = useRef(null);
   const routesBgRef = useRef(null);
+  const pathname = usePathname();
+
+  const isActiveRoute = (href) => pathname === href;
 
   useEffect(() => {
     const navElement = navRef.current;
@@ -68,7 +72,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="sticky top-4 sm:top-8 z-50 w-full border-none bg-transparent transition-colors duration-300"
+      className="fixed top-4 sm:top-8 left-0 right-0 z-50 w-full border-none bg-transparent transition-colors duration-300"
       style={{ backgroundColor: 'transparent' }}
     >
       <div className="mx-auto flex h-12 sm:h-14 w-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
@@ -108,10 +112,11 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`shrink-0 border-b-2 p-2 sm:p-3 text-xs sm:text-sm font-semibold transition-all duration-300 text-white ${
-                item.active
-                  ? 'border-orange-500'
-                  : 'border-transparent hover:border-orange-500/50 hover:text-white'
+              aria-current={isActiveRoute(item.href) ? 'page' : undefined}
+              className={`shrink-0 border-b-2 p-2 sm:p-3 text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                isActiveRoute(item.href)
+                  ? 'border-orange-500 text-orange-400 '
+                  : 'border-transparent text-white hover:border-orange-500/50 hover:text-orange-400'
               }`}
             >
               {item.label}
@@ -149,8 +154,9 @@ export default function Navbar() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
+                    aria-current={isActiveRoute(item.href) ? 'page' : undefined}
                     className={`transition-colors text-xs sm:text-sm ${
-                      item.active
+                      isActiveRoute(item.href)
                         ? 'font-semibold text-orange-400'
                         : 'text-white hover:text-orange-400'
                     }`}

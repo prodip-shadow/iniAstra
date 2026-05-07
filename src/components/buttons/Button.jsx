@@ -7,6 +7,7 @@ const colorVariants = {
   accent: 'btn-accent',
   neutral: 'btn-neutral',
   outline: 'btn-outline border-base-300 text-base-content hover:bg-base-200',
+  
 };
 
 export default function Button({
