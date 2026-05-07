@@ -68,13 +68,13 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="sticky top-8 z-50 w-full border-none bg-transparent transition-colors duration-300"
+      className="sticky top-4 sm:top-8 z-50 w-full border-none bg-transparent transition-colors duration-300"
       style={{ backgroundColor: 'transparent' }}
     >
-      <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-12 sm:h-14 w-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
         <div
           ref={logoBgRef}
-          className="shrink-0 rounded-2xl p-1"
+          className="shrink-0 rounded-lg sm:rounded-2xl p-1"
           style={{
             backgroundColor: 'transparent',
             backdropFilter: 'blur(0px)',
@@ -83,21 +83,21 @@ export default function Navbar() {
         >
           <Link
             href="/"
-            className="flex items-center border-b-2 p-3 border-transparent  transition-colors hover:border-orange-500/50"
+            className="flex items-center border-b-2 p-2 sm:p-3 border-transparent transition-colors hover:border-orange-500/50"
           >
             <Image
               src="/Logos/whitelogoforwebsite2-01.png"
               alt="iniAstra Tech Logo"
               width={1080}
               height={1080}
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
           </Link>
         </div>
 
         <div
           ref={routesBgRef}
-          className="hidden items-center  gap-1 rounded-2xl px-6 py-1.5 md:flex"
+          className="hidden items-center gap-0.5 sm:gap-1 rounded-lg sm:rounded-2xl px-4 sm:px-6 py-1 sm:py-1.5 md:flex"
           style={{
             backgroundColor: 'transparent',
             backdropFilter: 'blur(0px)',
@@ -108,7 +108,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`shrink-0 border-b-2 p-3 text-sm font-semibold transition-all duration-300 text-white ${
+              className={`shrink-0 border-b-2 p-2 sm:p-3 text-xs sm:text-sm font-semibold transition-all duration-300 text-white ${
                 item.active
                   ? 'border-orange-500'
                   : 'border-transparent hover:border-orange-500/50 hover:text-white'
@@ -119,18 +119,18 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 md:hidden">
           {/* Mobile Menu */}
           <div className="dropdown dropdown-end md:hidden">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle border border-white/15 bg-white/5 text-white hover:bg-white/10"
+              className="btn btn-ghost btn-circle btn-sm sm:btn-md border border-white/15 bg-white/5 text-white hover:bg-white/10"
               aria-label="Open menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-4 w-4 sm:h-5 sm:w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -144,12 +144,12 @@ export default function Navbar() {
               </svg>
             </div>
 
-            <ul className="menu dropdown-content mt-3 w-56 rounded-[10px] border border-white/10 bg-slate-950/90 p-3 shadow-xl backdrop-blur-2xl">
+            <ul className="menu dropdown-content mt-2 sm:mt-3 w-48 sm:w-56 rounded-lg sm:rounded-[10px] border border-white/10 bg-slate-950/90 p-2 sm:p-3 shadow-xl backdrop-blur-2xl text-sm">
               {navigationItems.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className={`transition-colors ${
+                    className={`transition-colors text-xs sm:text-sm ${
                       item.active
                         ? 'font-semibold text-orange-400'
                         : 'text-white hover:text-orange-400'

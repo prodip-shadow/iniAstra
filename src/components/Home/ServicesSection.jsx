@@ -80,19 +80,19 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative py-20 md:py-32 bg-linear-to-b from-slate-950 to-slate-900"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-32 bg-linear-to-b from-slate-950 to-slate-900"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-2xl space-y-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl space-y-3 sm:space-y-4">
           <h2
             ref={headingRef}
-            className="text-4xl md:text-5xl font-bold tracking-tight text-white font-audiowide"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white font-audiowide leading-tight"
           >
             Our Expertise
           </h2>
           <p
             ref={descriptionRef}
-            className="text-lg text-gray-300 leading-8 max-w-xl"
+            className="text-sm sm:text-base md:text-lg text-gray-300 leading-6 sm:leading-7 md:leading-8 max-w-xl"
           >
             Tailored technological solutions designed to bridge the gap between
             vision and reality. We specialize in high-performance digital
@@ -100,7 +100,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 sm:mt-12 md:mt-16 grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, idx) => (
             <div
               key={service.title}
@@ -120,8 +120,8 @@ export default function ServicesSection() {
       </div>
 
       {/* Accent Elements */}
-      <div className="absolute -left-20 top-24 h-56 w-56 bg-orange-500/6 rounded-full blur-xl opacity-10 pointer-events-none" />
-      <div className="absolute -right-28 bottom-8 h-64 w-64 bg-orange-500/4 rounded-full blur-xl opacity-10 pointer-events-none" />
+      <div className="absolute -left-12 sm:-left-20 top-16 sm:top-24 h-40 sm:h-56 w-40 sm:w-56 bg-orange-500/6 rounded-full blur-xl opacity-10 pointer-events-none" />
+      <div className="absolute -right-16 sm:-right-28 bottom-4 sm:bottom-8 h-48 sm:h-64 w-48 sm:w-64 bg-orange-500/4 rounded-full blur-xl opacity-10 pointer-events-none" />
     </section>
   );
 }

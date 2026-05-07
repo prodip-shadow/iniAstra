@@ -19,28 +19,28 @@ export default function HeroSection() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute -right-40 top-0 h-128 w-lg rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-orange-500/5 blur-3xl" />
+      <div className="absolute -right-32 sm:-right-40 top-0 h-80 sm:h-[32rem] lg:h-[40rem] w-80 sm:w-[32rem] lg:w-[40rem] rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-16 sm:-bottom-24 left-0 h-64 sm:h-96 w-64 sm:w-96 rounded-full bg-orange-500/5 blur-3xl pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen items-center justify-center">
         <div className="text-center px-6 sm:px-8 max-w-4xl mx-auto">
-          <span className="inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-[8px] font-semibold uppercase tracking-[0.2em] text-orange-400 backdrop-blur-sm ">
+          <span className="inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1.5 sm:px-4 sm:py-2 text-[7px] sm:text-[8px] font-semibold uppercase tracking-[0.2em] text-orange-400 backdrop-blur-sm">
             Next-Gen Digital Lab
           </span>
 
           <div className="space-y-8 mt-8">
-            <h1 className="text-4xl sm:text-6xl lg:text-6xl font-extrabold leading-tight font-audiowide tracking-tight text-white drop-shadow-2xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold leading-tight font-audiowide tracking-tight text-white drop-shadow-2xl">
               Smart Digital Solutions for Modern Businesses
             </h1>
-            <p className="text-xl sm:text-lg leading-8 text-gray-300 drop-shadow-lg max-w-3xl mx-auto font-playwrite-ar">
+            <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-300 drop-shadow-lg max-w-3xl mx-auto ">
               We design, develop, and integrate intelligent systems to help your
               business grow. Transform your operational efficiency with kinetic
               technology.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-8">
             <Button href="#contact" text="Get Started" color="primary" />
             <Button href="#services" text="View Services" color="secondary" />
           </div>

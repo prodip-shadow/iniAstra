@@ -32,12 +32,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${quantico.variable} ${audiowide.variable} ${playwriteAr.variable} ${brunoAceSc.variable} h-full antialiased bg-slate-950`}
+      className={`${quantico.variable} ${audiowide.variable} ${playwriteAr.variable} ${brunoAceSc.variable} h-full overflow-x-hidden antialiased bg-slate-950`}
       suppressHydrationWarning
     >
       <body
         suppressHydrationWarning
-        className="min-h-full flex flex-col bg-slate-950 text-white"
+        className="min-h-full flex flex-col overflow-x-hidden bg-slate-950 text-white"
       >
         {children}
       </body>

@@ -22,10 +22,14 @@ function ServiceIcon({ name }) {
 
   return (
     <div
-      className={`flex h-12 w-12 items-center justify-center rounded-[10px] ${icon.wrapper}`}
+      className={`flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-[10px] ${icon.wrapper}`}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-5 sm:h-6 w-5 sm:w-6"
+      >
         <path d={icon.svg} />
       </svg>
     </div>
@@ -34,24 +38,24 @@ function ServiceIcon({ name }) {
 
 export default function ServiceCard({ icon, title, description }) {
   return (
-    <article className="relative group overflow-hidden rounded-2xl bg-base-100 border border-transparent p-6 md:p-8 transition-transform duration-200 hover:scale-[1.01] h-full">
+    <article className="relative group overflow-hidden rounded-2xl bg-base-100 border border-transparent p-4 sm:p-6 md:p-8 transition-transform duration-200 hover:scale-[1.01] h-full">
       <div className="relative z-10 flex flex-col h-full">
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-3 sm:gap-4">
           <div className="shrink-0">
             <ServiceIcon name={icon} />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg md:text-xl font-semibold tracking-tight text-base-content mb-1">
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold tracking-tight text-base-content mb-1">
               {title}
             </h3>
-            <p className="text-sm md:text-base leading-7 text-base-content/70">
+            <p className="text-xs sm:text-sm md:text-base leading-6 sm:leading-7 text-base-content/70">
               {description}
             </p>
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-end">
-          <span className="text-sm font-medium text-primary/90">
+        <div className="mt-4 sm:mt-6 flex items-center justify-end">
+          <span className="text-xs sm:text-sm font-medium text-primary/90 whitespace-nowrap">
             Learn more →
           </span>
         </div>
