@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Button from '@/components/buttons/Button';
-import ServiceShowcaseCard from '@/components/shared/ServiceShowcaseCard';
+import ServiceShowcaseCard from '@/components/cards/ServiceShowcaseCard';
 import { servicesData } from '@/data/services';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,7 +67,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-linear-to-b from-slate-950 to-slate-900 py-12 sm:py-16 md:py-20 lg:py-32"
+      className="relative overflow-hidden bg-linear-to-b from-slate-950 to-slate-900 py-12 sm:py-16 md:py-20 lg:py-42"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl space-y-3 sm:space-y-4">

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Button from '@/components/buttons/Button';
-import ServiceShowcaseCard from '@/components/shared/ServiceShowcaseCard';
+import ServiceShowcaseCard from '@/components/cards/ServiceShowcaseCard';
 import { servicesData } from '@/data/services';
 
 gsap.registerPlugin(ScrollTrigger);
