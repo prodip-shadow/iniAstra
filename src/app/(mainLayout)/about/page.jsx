@@ -1,9 +1,10 @@
 'use client';
-/* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Image from 'next/image';
+import AboutMemberCard from '@/components/cards/AboutMemberCard';
+import AboutClientCard from '@/components/cards/AboutClientCard';
 
 const leadershipTeam = [
   {
@@ -70,9 +71,10 @@ const clients = [
       'https://ui-avatars.com/api/?name=Tatonka+Hotel+de+Playa&background=0B1020&color=FFFFFF&size=256&bold=true&format=svg',
   },
   {
-    name: 'iniAstra Tech',
+    name: 'In',
     subtitle: 'Internal brand system',
-    image: '/Logos/iniAstraTechLogoWhite-01.png',
+    image:
+      'https://ui-avatars.com/api/?name=Tatonka+Hotel+de+Playa&background=0B1020&color=FFFFFF&size=256&bold=true&format=svg',
   },
 ];
 
@@ -95,63 +97,6 @@ function SectionLabel({ number, title, eyebrow, titleRef }) {
         {title}
       </h2>
     </div>
-  );
-}
-
-function AvatarCard({ member, cardRef, index }) {
-  return (
-    <article
-      ref={cardRef}
-      className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-(--surface-1)/90 p-4 transition-transform duration-300 hover:-translate-y-1 sm:p-5"
-      style={{ boxShadow: '0 18px 50px rgba(0, 0, 0, 0.18)' }}
-    >
-      <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border border-white/10 bg-slate-900">
-        <img
-          src={member.image}
-          alt={member.name}
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-orange-300/90">
-          0{index + 1}
-        </div>
-        <h3 className="mt-2 text-lg font-bold tracking-tight text-white sm:text-xl">
-          {member.name}
-        </h3>
-        <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-white/65 sm:text-sm">
-          {member.role}
-        </p>
-      </div>
-    </article>
-  );
-}
-
-function ClientCard({ client, cardRef }) {
-  return (
-    <article
-      ref={cardRef}
-      className="group flex min-h-60 flex-col items-center justify-center rounded-3xl border border-white/10 bg-(--surface-1)/90 p-6 text-center transition-transform duration-300 hover:-translate-y-1"
-      style={{ boxShadow: '0 18px 50px rgba(0, 0, 0, 0.18)' }}
-    >
-      <div className="relative flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 p-4">
-        <img
-          src={client.image}
-          alt={client.name}
-          className="h-full w-full object-contain"
-          loading="lazy"
-        />
-      </div>
-
-      <h3 className="mt-5 text-lg font-bold tracking-tight text-white sm:text-xl">
-        {client.name}
-      </h3>
-      <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-white/65 sm:text-sm">
-        {client.subtitle}
-      </p>
-    </article>
   );
 }
 
@@ -302,7 +247,7 @@ export default function AboutPage() {
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {leadershipTeam.map((member, index) => (
-              <AvatarCard
+              <AboutMemberCard
                 key={member.name}
                 member={member}
                 index={index}
@@ -331,7 +276,7 @@ export default function AboutPage() {
 
           <div className="grid gap-5 md:grid-cols-3">
             {clients.map((client, index) => (
-              <ClientCard
+              <AboutClientCard
                 key={client.name}
                 client={client}
                 cardRef={(el) => {
