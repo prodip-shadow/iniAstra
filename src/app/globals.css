@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AR+Guides&display=swap');
 @import 'tailwindcss';
 /* stylelint-disable at-rule-no-unknown */
 @plugin "daisyui";
 /* stylelint-enable at-rule-no-unknown */
 
 :root {
-  --background: #050816;
-  --foreground: #f8fafc;
-  --surface-1: #0b1020;
-  --surface-2: #111827;
-  --surface-3: #1f2937;
-  --brand-start: #ff7a00;
-  --brand-end: #ff2d00;
+  /* Dark, slightly warmer glass theme */
+  --background: #03050a; /* near-black */
+  --foreground: #eef2f7;
+  --font-playwrite-ar: 'Playwrite AR Guides', cursive;
+  --surface-1: #060713; /* very dark surface */
+  --surface-2: #0b0f1a;
+  --surface-3: #111420;
+  --brand-start: #ff8a34;
+  --brand-end: #ff4f1f;
   --brand-primary: #ff7a00;
-  --brand-secondary: #ff2d00;
-  --brand-accent: #ff3b3b;
-  --brand-muted: #584235;
-  --brand-outline: rgba(255, 122, 0, 0.3);
-  --brand-shadow: rgba(255, 122, 0, 0.28);
+  --brand-secondary: #ff4d2d;
+  --brand-accent: #ff5b4b;
+  --brand-muted: #4a3428;
+  --brand-outline: rgba(255, 122, 0, 0.22);
+  --brand-shadow: rgba(0, 0, 0, 0.6);
   --color-base-100: var(--surface-1);
   --color-base-200: var(--surface-2);
   --color-base-300: var(--surface-3);
@@ -27,8 +30,8 @@
   --color-secondary-content: #ffffff;
   --color-accent: var(--brand-accent);
   --color-accent-content: #ffffff;
-  --color-neutral: #0f172a;
-  --color-neutral-content: #f8fafc;
+  --color-neutral: #071028;
+  --color-neutral-content: #eef2f7;
   --color-info: #3b82f6;
   --color-info-content: #ffffff;
   --color-success: #16a34a;
@@ -37,9 +40,9 @@
   --color-warning-content: #ffffff;
   --color-error: #dc2626;
   --color-error-content: #ffffff;
-  --radius-selector: 0.625rem;
-  --radius-field: 0.625rem;
-  --radius-box: 0.625rem;
+  --radius-selector: 0.75rem;
+  --radius-field: 0.75rem;
+  --radius-box: 0.75rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
   --border: 1px;
@@ -69,12 +72,52 @@
   }
 
   .brand-shadow {
-    box-shadow: 0 20px 60px var(--brand-shadow);
+    box-shadow:
+      0 12px 40px var(--brand-shadow),
+      inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  }
+
+  /* Reusable dark glass surface */
+  .glass {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.01)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  }
+
+  .card-glass {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.01)
+    );
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 1rem;
+    color: var(--color-base-content);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
   }
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(
+      1200px 800px at 10% 10%,
+      rgba(30, 40, 60, 0.18),
+      transparent
+    ),
+    radial-gradient(
+      1000px 700px at 90% 80%,
+      rgba(20, 12, 40, 0.14),
+      transparent
+    ),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-quantico), Arial, Helvetica, sans-serif;
   color-scheme: dark;

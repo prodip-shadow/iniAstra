@@ -1,5 +1,5 @@
 import { Quantico } from 'next/font/google';
-import { Audiowide, Playwrite_AR_Guides, Bruno_Ace_SC } from 'next/font/google';
+import { Audiowide, Bruno_Ace_SC } from 'next/font/google';
 import './globals.css';
 
 const quantico = Quantico({
@@ -10,11 +10,6 @@ const quantico = Quantico({
 
 const audiowide = Audiowide({
   variable: '--font-audiowide',
-  weight: '400',
-});
-
-const playwriteAr = Playwrite_AR_Guides({
-  variable: '--font-playwrite-ar',
   weight: '400',
 });
 
@@ -32,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${quantico.variable} ${audiowide.variable} ${playwriteAr.variable} ${brunoAceSc.variable} h-full overflow-x-hidden antialiased bg-slate-950`}
+      className={`${quantico.variable} ${audiowide.variable} ${brunoAceSc.variable} h-full overflow-x-hidden antialiased bg-slate-950`}
       suppressHydrationWarning
     >
       <body

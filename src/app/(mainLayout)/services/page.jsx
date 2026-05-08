@@ -44,18 +44,26 @@ export default function ServicesPage() {
 
         gsap.fromTo(
           card,
-          { opacity: 0, y: 40, scale: 0.93 },
+          {
+            opacity: 0.2,
+            x: idx % 2 === 0 ? -180 : 180,
+            y: 30,
+            rotate: idx % 2 === 0 ? -4 : 4,
+            scale: 0.94,
+          },
           {
             opacity: 1,
+            x: 0,
             y: 0,
+            rotate: 0,
             scale: 1,
-            duration: 0.6,
-            delay: 0.1 + idx * 0.08,
-            ease: 'power3.out',
+            ease: 'none',
             scrollTrigger: {
               trigger: card,
-              start: 'top 80%',
-              once: true,
+              start: 'top 94%',
+              end: 'top 44%',
+              scrub: 1.1,
+              invalidateOnRefresh: true,
             },
           },
         );
@@ -110,27 +118,6 @@ export default function ServicesPage() {
                 <ServiceShowcaseCard service={service} />
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="relative px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded-3xl border border-white/10 bg-linear-to-r from-orange-500/10 to-amber-500/5 p-8 text-center sm:p-12">
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Ready to Get Started?
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-sm text-gray-300 sm:text-base">
-              Choose the service that fits your needs and let us turn the idea
-              into a polished product.
-            </p>
-            <Button
-              href="/contact"
-              text="Get in Touch"
-              color="brand"
-              className="rounded-full px-8 py-3 text-base font-semibold transition-transform duration-200 hover:-translate-y-0.5"
-            ></Button>
           </div>
         </div>
       </div>

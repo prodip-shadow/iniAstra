@@ -14,7 +14,7 @@ export default function ServicesSection() {
   const descriptionRef = useRef(null);
   const cardsRef = useRef([]);
   const ctaRef = useRef(null);
-  const previewServices = servicesData.slice(0, 2);
+  const previewServices = servicesData.slice(0, 6);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,18 +38,6 @@ export default function ServicesSection() {
           '-=0.3',
         )
         .fromTo(
-          cardsRef.current,
-          { opacity: 0, y: 30, scale: 0.95 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.5,
-            stagger: 0.1,
-          },
-          '-=0.2',
-        )
-        .fromTo(
           ctaRef.current,
           { opacity: 0, y: 20 },
           {
@@ -59,6 +47,36 @@ export default function ServicesSection() {
           },
           '-=0.2',
         );
+
+      cardsRef.current.forEach((card, idx) => {
+        if (!card) return;
+
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0.2,
+            x: idx % 2 === 0 ? -180 : 180,
+            y: 30,
+            rotate: idx % 2 === 0 ? -4 : 4,
+            scale: 0.94,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            rotate: 0,
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 94%',
+              end: 'top 44%',
+              scrub: 1.1,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      });
     });
 
     return () => ctx.revert();
@@ -67,7 +85,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-linear-to-b from-slate-950 to-slate-900 py-12 sm:py-16 md:py-20 lg:py-42"
+      className="relative overflow-hidden bg-slate-950/10 py-12 sm:py-16 md:py-20 lg:py-42"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl space-y-3 sm:space-y-4">
@@ -85,7 +103,7 @@ export default function ServicesSection() {
           </h2>
           <p
             ref={descriptionRef}
-            className="max-w-xl text-sm leading-7 text-gray-300 sm:text-base sm:leading-8 md:text-lg"
+            className="max-w-xl text-sm leading-7 text-base-content/70 sm:text-base sm:leading-8 md:text-lg"
           >
             Choose from the core services we provide. The first two are shown
             here, and the full collection lives on the services page.
@@ -111,7 +129,7 @@ export default function ServicesSection() {
             href="/services"
             text="See more services →"
             color="outline"
-            className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-200 text-center"
+            className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-base-content text-center"
           ></Button>
         </div>
       </div>
